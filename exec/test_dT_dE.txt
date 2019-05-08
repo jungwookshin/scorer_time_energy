@@ -3,22 +3,22 @@
 b:Ge/World/Invisible = "TRUE"
 s:Ge/World/Material = "Vacuum"
 
-s:Ge/Target/Type     = "TsCylinder"
-s:Ge/Target/Parent   = "World"
-s:Ge/Target/Material = "G4_W"
-d:Ge/Target/RMax     = 10. cm
-d:Ge/Target/HL       = .5 cm
-d:Ge/Target/TransZ   = 60. cm
-s:Ge/Target/Color    = "red"
+#s:Ge/Target/Type     = "TsCylinder"
+#s:Ge/Target/Parent   = "World"
+#s:Ge/Target/Material = "G4_W"
+#d:Ge/Target/RMax     = 10. cm
+#d:Ge/Target/HL       = .5 cm
+#d:Ge/Target/TransZ   = 60. cm
+#s:Ge/Target/Color    = "red"
 
-s:Ge/Bolus/Type     = "TsBox"
-s:Ge/Bolus/Parent   = "World"
-s:Ge/Bolus/Material = "G4_PLEXIGLASS"
-d:Ge/Bolus/HLX      = 20. cm
-d:Ge/Bolus/HLY      = 20. cm
-d:Ge/Bolus/HLZ      = 5. cm
-d:Ge/Bolus/TransZ   = 25. cm
-s:Ge/Bolus/Color    = "yellow"
+#s:Ge/Bolus/Type     = "TsBox"
+#s:Ge/Bolus/Parent   = "World"
+#s:Ge/Bolus/Material = "G4_PLEXIGLASS"
+#d:Ge/Bolus/HLX      = 20. cm
+#d:Ge/Bolus/HLY      = 20. cm
+#d:Ge/Bolus/HLZ      = 5. cm
+#d:Ge/Bolus/TransZ   = 25. cm
+#s:Ge/Bolus/Color    = "yellow"
 
 s:Ge/Phantom/Type     = "TsBox"
 s:Ge/Phantom/Parent   = "World"
@@ -30,7 +30,7 @@ d:Ge/Phantom/TransZ   = 0. cm
 s:Ge/Phantom/Color    = "blue"
 
 s:Sc/PhaseSpaceAtPhantom/Quantity                    = "NtupleScorer_dTdE"
-b:Sc/PhaseSpaceAtPhantom/OutputToConsole             = "True"
+b:Sc/PhaseSpaceAtPhantom/OutputToConsole             = "False"
 s:Sc/PhaseSpaceAtPhantom/Surface                     = "Phantom/ZPlusSurface"
 s:Sc/PhaseSpaceAtPhantom/OutputType                  = "ROOT" # ASCII or ROOT
 s:Sc/PhaseSpaceAtPhantom/IfOutputFileAlreadyExists   = "Overwrite"
@@ -43,12 +43,13 @@ d:Gr/ViewA/Phi              = 20 deg
 s:Gr/ViewA/Projection       = "Perspective"
 d:Gr/ViewA/PerspectiveAngle = 30 deg
 u:Gr/ViewA/Zoom             = 1.2
+s:Gr/ViewA/ColorBy			= "ParticleType"
 b:Gr/ViewA/HiddenLineRemovalForTrajectories = "True"
 
 s:So/Example/Type                     = "Beam"
 s:So/Example/Component                = "BeamPosition"
 s:So/Example/BeamParticle             = "e-"
-d:So/Example/BeamEnergy               = 21. MeV
+d:So/Example/BeamEnergy               = 100. MeV
 u:So/Example/BeamEnergySpread         = 0.757504
 s:So/Example/BeamPositionDistribution = "Gaussian"
 s:So/Example/BeamPositionCutoffShape  = "Ellipse"
@@ -57,9 +58,9 @@ d:So/Example/BeamPositionCutoffY      = 1. cm
 d:So/Example/BeamPositionSpreadX      = 0.65 cm
 d:So/Example/BeamPositionSpreadY      = 0.65 cm
 s:So/Example/BeamAngularDistribution  = "None"
-i:So/Example/NumberOfHistoriesInRun   = 1
+i:So/Example/NumberOfHistoriesInRun   = 100
 
 i:Ts/ShowHistoryCountAtInterval = 1
-#b:Ts/PauseBeforeQuit = "True"
+b:Ts/PauseBeforeQuit = "True"
 
-i:Ts/TrackingVerbosity = 1
+#i:Ts/TrackingVerbosity = 1

@@ -30,7 +30,7 @@ protected:
         G4float fPosX;
         G4float fPosY;
         G4float fPosZ;
-        G4double fEnergy;
+        G4float fEnergy;
         G4float fTimeOfFlight;
         G4int fPType;
         G4String fOriginProcessName;
