@@ -1,10 +1,10 @@
 # scorer_time_energy
 
-A step-by-step tutorial for a custom TOPAS's nTuple scorer to output deposited energy as a function of time (flight time) in 2D histogram.
+A step-by-step tutorial for a custom TOPAS's nTuple scorer to output deposited energy as a function of time (flight time) in a 2D histogram.
 
 # Background
 
-This project was motivated by a question from Fernando Hueso about 2D histogram of deposit energy as a function of time. As this can be realized by a custom scorer, it was recommended to develop a custom scorer. Like Fernando, many of TOPAS users want to implement their own scorers. In spite of many extension examples, a step-by-step guide for TOPAS users who don't have much C++ experience. Hope this step-by-step guide will be helpful. 
+This project was motivated by a question from Fernando Hueso about 2D histogram of deposit energy as a function of time. As this can not be realized yet by a builtin scorer, it was recommended to develop a custom scorer. Like Fernando, many of TOPAS users want to implement their own scorers. In spite of many extension examples, a step-by-step guide for TOPAS users who don't have much C++ experience is not available. Hope this step-by-step guide will be helpful. 
 
 
 # Getting started
@@ -69,7 +69,7 @@ topas/
 
 I download and put TOPAS releases to /opt/sw/topas/{topas_version} and put /opt/sw/topas/extensions.
 
-## Compile your TOPAS wtih this extension.
+## Compile your TOPAS with this extension.
 
 I assumed the basic steps described in README.txt of TOPAS release directory are done.
 
@@ -122,7 +122,7 @@ myhistogram.root
 
 ```
 
-A root file is created.
+A ROOT file is created.
 
 
 ![example_image](doc/figure/test_my_ntuple2.png)
