@@ -88,6 +88,8 @@ In my case, {your_topas_directory} is /opt/sw/topas/3.2.0 and {your_extension_di
 
 checkout tag-0.1 for skeleton code.
 
+A ntuple scorer is created. NtupleScorer_dTdE.hh and NtupleScorer_dTdE.cc 
+
 This is an initial version.
 
 
