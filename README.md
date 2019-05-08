@@ -13,6 +13,8 @@ This project was motivated by a question from Fernando Hueso about 2D histogram 
 
 - TOPAS must be installed. Test version was 3.2.0 (latest as of May, 2019)
 
+- Unzip the full set of Geant4 header files from topas/Geant4Headers.zip. See also README_Topas_3_2.txt in the code repository, there are detailed instructions, too.
+
 - cmake. Test version 3.14.2
 
 - OS
