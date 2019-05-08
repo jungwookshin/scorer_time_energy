@@ -20,7 +20,15 @@ NtupleScorer_dTdE::NtupleScorer_dTdE(TsParameterManager* pM, TsMaterialManager* 
 						 : TsVNtupleScorer(pM, mM, gM, scM, eM, scorerName, quantity, outFileName, isSubScorer)
 {
 	SetSurfaceScorer(); //Scorer or volume? 
+        fpM->SetNeedsSteppingAction(); //is this needed?
 
+        fNtuple->RegisterColumnF(&fPosX, "Position X", "cm");
+        fNtuple->RegisterColumnF(&fPosY, "Position Y", "cm");
+        fNtuple->RegisterColumnF(&fPosZ, "Position Z", "cm");
+        fNtuple->RegisterColumnF(&fEnergy, "Energy", "MeV");
+        fNtuple->RegisterColumnF(&fTimeOfFlight, "Time of flight", "MeV");
+        fNtuple->RegisterColumnI(&fPType, "Particle Type (in PDG Format)");
+        fNtuple->RegisterColumnS(&fOriginProcessName, "Origin Process");
 }
 
 
@@ -36,6 +44,30 @@ G4bool NtupleScorer_dTdE::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 
 	ResolveSolid(aStep);
 
+        if (IsSelectedSurface(aStep)) {
+            G4StepPoint* theStepPoint=0;
+            G4int direction = GetDirection();
+            if (direction == fFlux_In) theStepPoint = aStep->GetPreStepPoint();
+            else if (direction == fFlux_Out) theStepPoint = aStep->GetPostStepPoint();
+            else return false;
 
+                    G4ThreeVector pos       = theStepPoint->GetPosition();
+                    fPosX           = pos.x();
+                    fPosY           = pos.y();
+                    fPosZ           = pos.z();
+
+                    fEnergy	    = theStepPoint->GetKineticEnergy();
+                    fTimeOfFlight   = theStepPoint->GetTimeofFlight();
+                    fPType          = aStep->GetTrack()->GetDefinition()->GetPDGEncoding();
+
+                    const G4VProcess* originProcess = aStep->GetTrack()->GetCreatorProcess();
+                    if (originProcess)
+                            fOriginProcessName = originProcess->GetProcessName();
+                    else
+                            fOriginProcessName = "Primary";
+
+            fNtuple->Fill();
+            return true;
+        }
 	return false;
 }

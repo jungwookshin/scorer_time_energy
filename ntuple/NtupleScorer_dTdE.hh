@@ -26,5 +26,13 @@ public:
 	G4bool ProcessHits(G4Step*,G4TouchableHistory*);
 
 protected:
+        // Output variables
+        G4float fPosX;
+        G4float fPosY;
+        G4float fPosZ;
+        G4double fEnergy;
+        G4float fTimeOfFlight;
+        G4int fPType;
+        G4String fOriginProcessName;
 };
 #endif
