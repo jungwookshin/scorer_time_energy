@@ -120,10 +120,10 @@ checkout tag-0.3 for store these information to TOPAS's map for thread-safe vers
 ```bash
 
 $ cd {your_topas_directory}
-$ ./topas {your_extension_directory}/exec/test_dt_de.txt
+$ ./topas {your_extension_directory}/exec/test_dT_dE.txt
 $ ls 
 
-myhistogram.root
+topas.root
 
 ```
 
