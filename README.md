@@ -19,6 +19,9 @@ This project was motivated by a question from Fernando Hueso about 2D histogram 
 
 - OS
   - Mac OS 10.14.1 (Mojave)
+  
+- Linux
+  - Ubuntu 18 (Bionic)
 
 ## Getting source from github repository
 
