@@ -86,11 +86,17 @@ In my case, {your_topas_directory} is /opt/sw/topas/3.2.0 and {your_extension_di
 
 ## Step 1
 
-checkout tag-0.1 for skeleton code.
+This is an initial version.
+
+checkout tag-0.1 to see skeleton code.
 
 A ntuple scorer is created. NtupleScorer_dTdE.hh and NtupleScorer_dTdE.cc 
 
-This is an initial version.
+A TOPAS input file is created.
+
+This step shows that how to create a proper scorer type for your purpose.
+
+Why we picked up Ntuple scorer over Binned scorer? 
 
 
 ## Step 2
