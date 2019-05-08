@@ -4,7 +4,7 @@ A step-by-step tutorial for a custom TOPAS's nTuple scorer to output deposited e
 
 # Background
 
-This project was motivated by a question to TOPAS forum from Fernando Hueso about 2D histogram of deposit energy and flight time of a particle. This can be realized by a custom scorer and many of TOPAS users want to implement their own scorers. Although many examples are provided by TOPAS, a step-by-step guide doesn't exist and I believe that will be helpful for TOPAS users who don't have much of C++ experience.  
+This project was motivated by a question from Fernando Hueso about 2D histogram of deposit energy as a function of time. As this can be realized by a custom scorer, it was recommended to develop a custom scorer. Like Fernando, many of TOPAS users want to implement their own scorers. In spite of many extension examples, a step-by-step guide for TOPAS users who don't have much C++ experience. Hope this step-by-step guide will be helpful. 
 
 
 # Getting started
@@ -82,6 +82,25 @@ $ make -j3
 ```
 
 In my case, {your_topas_directory} is /opt/sw/topas/3.2.0 and {your_extension_directory} is /opt/sw/topas/extensions/dt_de.
+
+
+## Step 1
+
+checkout tag-0.1 for skeleton code.
+
+This is an initial version.
+
+
+## Step 2
+
+checkout tag-0.2 for deposit energy and time of flight of a particle
+
+
+## Step 3
+
+checkout tag-0.3 for store these information to TOPAS's map for thread-safe version.
+
+
 
 ## Run topas with topas input file
 
