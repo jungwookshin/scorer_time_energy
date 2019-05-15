@@ -22,14 +22,15 @@ NtupleScorer_dTdE::NtupleScorer_dTdE(TsParameterManager* pM, TsMaterialManager* 
 {
 	SetSurfaceScorer(); //Scorer or volume? 
         pM->SetNeedsSteppingAction(); //is this needed?
+        pM->SetNeedsTrackingAction(); //is this needed?
 
-        fNtuple->RegisterColumnF(&fPosX, "Position X", "cm");
-        fNtuple->RegisterColumnF(&fPosY, "Position Y", "cm");
-        fNtuple->RegisterColumnF(&fPosZ, "Position Z", "cm");
-        fNtuple->RegisterColumnF(&fEnergy, "Energy", "MeV");
-        fNtuple->RegisterColumnF(&fTimeOfFlight, "Time of flight", "ns");
-        fNtuple->RegisterColumnI(&fPType, "Particle Type (in PDG Format)");
-        fNtuple->RegisterColumnS(&fOriginProcessName, "Origin Process");
+        fNtuple->RegisterColumnF(&fPosX, "x", "");
+        fNtuple->RegisterColumnF(&fPosY, "y", "");
+        fNtuple->RegisterColumnF(&fPosZ, "z", "");
+        fNtuple->RegisterColumnF(&fEnergy, "E", "");
+        fNtuple->RegisterColumnF(&fTimeOfFlight, "tof", "");
+        fNtuple->RegisterColumnI(&fPType, "ptype");
+        fNtuple->RegisterColumnS(&fOriginProcessName, "process");
 }
 
 
@@ -58,7 +59,7 @@ G4bool NtupleScorer_dTdE::ProcessHits(G4Step* aStep,G4TouchableHistory*)
                     fPosZ           = pos.z();
 
                     fEnergy	    = theStepPoint->GetKineticEnergy();
-                    fTimeOfFlight   = theStepPoint->GetProperTime();
+                    fTimeOfFlight   = aStep->GetTrack()->GetGlobalTime();
                     fPType          = aStep->GetTrack()->GetDefinition()->GetPDGEncoding();
 
                     const G4VProcess* originProcess = aStep->GetTrack()->GetCreatorProcess();
