@@ -20,9 +20,9 @@ NtupleScorer_dTdE::NtupleScorer_dTdE(TsParameterManager* pM, TsMaterialManager* 
 						  G4String scorerName, G4String quantity, G4String outFileName, G4bool isSubScorer)
 						 : TsVNtupleScorer(pM, mM, gM, scM, eM, scorerName, quantity, outFileName, isSubScorer)
 {
-	SetSurfaceScorer(); //Scorer or volume? 
-        pM->SetNeedsSteppingAction(); //is this needed?
-        pM->SetNeedsTrackingAction(); //is this needed?
+	//SetSurfaceScorer(); //Scorer or volume? 
+      //  pM->SetNeedsSteppingAction(); //is this needed?
+      //  pM->SetNeedsTrackingAction(); //is this needed?
 
         fNtuple->RegisterColumnF(&fPosX, "x", "");
         fNtuple->RegisterColumnF(&fPosY, "y", "");
@@ -46,19 +46,22 @@ G4bool NtupleScorer_dTdE::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 
 	ResolveSolid(aStep);
 
-        if (IsSelectedSurface(aStep)) {
+        //~ if (IsSelectedSurface(aStep)) {
+        if (aStep) {
             G4StepPoint* theStepPoint=0;
-            G4int direction = GetDirection();
-            if (direction == fFlux_In) theStepPoint = aStep->GetPreStepPoint();
-            else if (direction == fFlux_Out) theStepPoint = aStep->GetPostStepPoint();
-            else return false;
+            //~ G4int direction = GetDirection();
+            //~ if (direction == fFlux_In) theStepPoint = aStep->GetPreStepPoint();
+            //~ else if (direction == fFlux_Out) theStepPoint = aStep->GetPostStepPoint();
+            //~ else return false;
+            theStepPoint = aStep->GetPreStepPoint();
+            if(!theStepPoint) return false;
 
                     G4ThreeVector pos       = theStepPoint->GetPosition();
                     fPosX           = pos.x();
                     fPosY           = pos.y();
                     fPosZ           = pos.z();
 
-                    fEnergy	    = theStepPoint->GetKineticEnergy();
+                    fEnergy	    	= theStepPoint->GetKineticEnergy();
                     fTimeOfFlight   = aStep->GetTrack()->GetGlobalTime();
                     fPType          = aStep->GetTrack()->GetDefinition()->GetPDGEncoding();
 
