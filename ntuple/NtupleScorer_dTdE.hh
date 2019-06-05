@@ -15,6 +15,10 @@
 
 #include "TsVNtupleScorer.hh"
 
+#include <map>
+using std::map;
+using std::vector;
+
 class NtupleScorer_dTdE : public TsVNtupleScorer
 {
 public:
@@ -32,7 +36,18 @@ protected:
         G4float fPosZ;
         G4float fEnergy;
         G4float fTimeOfFlight;
-        G4int fPType;
-        G4String fOriginProcessName;
+        //G4int fPType;
+        //G4String fOriginProcessName;
+        
+        uint64_t lastEvent;
+        
+        struct PromptGamma {
+	G4float x, y, z, E, tof;
+	//G4int ptype;
+	//G4String process;
+	};
+
+	map<G4int,vector<PromptGamma>> pgbuffer;
+	map<G4float,G4float> ptofbuffer;
 };
 #endif
